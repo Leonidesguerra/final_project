@@ -21,10 +21,14 @@
 
     <nav class="navbar bg-dark">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">México Crop Visualizations</span>
+          <span class="navbar-brand mb-0 h1 col-sm-2">México Crop Production Heatmap</span>
+          <a class="col-sm-6"></a>
+          <a href="/clusters">
+            Cluster Analisis
+          </a>
           <a href="/">
-            Regresar
-        </a>
+            Home
+          </a>
 
         </div>
       </nav>
@@ -410,22 +414,22 @@
         <div class="container-lg">
             <div class ="row">
                 <div class="col-lg-7">
-                    <h4 id= "mapTt">México</h4>
+                    <h4 id= "mapTt">México Heatmap based on Production Value </h4>
                     <div class="mapbox">
-                        <div class="row-fluid" id="map" style="height: 900px"></div>
+                        <div class="row-fluid" id="map" style="height: 800px"></div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class = 'row'>
                         <h4 id="topProducer"> Top producers of all crops</h4>
-                        <div id="plot1" style="height: 380px" ></div>
+                        <div id="plot1" style="height: 350px" ></div>
                     </div>
                     
                     <br>
                     <hr>
                     <div class = 'row'>
                         <h4 id="topCrop"> Top crops in México</h4>
-                        <div id="plot2" style="height: 380px"></div>
+                        <div id="plot2" style="height: 350px"></div>
                     </div>
                 </div>
             </div>

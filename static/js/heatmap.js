@@ -27,7 +27,7 @@ d3.select("button").on("click",(d)=>{
 
   //removing the map and generating a new one
   map.remove();
-  let mapdiv = d3.select(".mapbox").append("div").classed("row-fluid", true).attr("id", "map").attr("style", "height: 850px");
+  let mapdiv = d3.select(".mapbox").append("div").classed("row-fluid", true).attr("id", "map").attr("style", "height: 800px");
   
   
   let estado = d3.select("#region").node().value;
