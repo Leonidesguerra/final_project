@@ -7,7 +7,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session, session
 from sqlalchemy import create_engine, func
 
-from config import DATABASE_URI
+# from config import DATABASE_URI
 
 from flask import Flask, jsonify,  render_template, redirect
 
@@ -15,7 +15,10 @@ from flask import Flask, jsonify,  render_template, redirect
 # Database Setup
 #################################################
 app = Flask(__name__)
-engine = sqlalchemy.create_engine(DATABASE_URI)
+# engine = sqlalchemy.create_engine(DATABASE_URI)
+
+rds_connection_string = "postgres:imadlefl@localhost:5432/Agriculture_JB"
+engine = create_engine(f'postgresql://{rds_connection_string}')
 
 
 @app.route("/")
@@ -29,12 +32,6 @@ def visualizations():
     # go to home page to scrape info
     return render_template("Agricultura_HTML.html")
 
-@app.route("/clusters")
-def clusters():
-    # go to home page to scrape info
-    return render_template("clusters.html")
-
-
 
 @app.route("/mexican_states")
 def perimeter():
@@ -42,6 +39,19 @@ def perimeter():
     return render_template("mexican_states.html")
 
 
+@app.route("/toppais")
+def toppais():
+    data = engine.execute(
+        "SELECT cultivo, SUM(valorproduccion) FROM agr2017 GROUP BY cultivo LIMIT 20")
+    #df = pd.read_sql_query(query, engine)
+    # return df[['cultivo', 'sum']].to_dict()
+    all_data = []
+    for record in data:
+        data_dict = {}
+        data_dict['cultivo'] = record[0]
+        data_dict['sum'] = record[1]
+        all_data.append(data_dict)
+    return jsonify(all_data)
 
 
 @app.route("/estadocrop")
