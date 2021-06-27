@@ -72,8 +72,10 @@ d3.select("button").on("click",(d)=>{
     
   
       let clColor = "";
-  
-      if(ccluster === 1){
+
+       if(ccluster === 0){
+        clColor = "#feb236"
+      }else if(ccluster === 1){
         clColor = "#6b5b95"
       } else if(ccluster === 2){
         clColor ="#d64161"
