@@ -15,9 +15,8 @@ from flask import Flask, jsonify,  render_template, redirect
 # Database Setup
 #################################################
 app = Flask(__name__)
-# engine = sqlalchemy.create_engine(DATABASE_URI)
-rds_connection_string = "postgres:imadlefl@localhost:5432/Agriculture_JB"
-engine = create_engine(f'postgresql://{rds_connection_string}')
+engine = sqlalchemy.create_engine(DATABASE_URI)
+
 
 @app.route("/")
 def home():
