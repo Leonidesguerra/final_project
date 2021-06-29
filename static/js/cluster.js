@@ -35,9 +35,6 @@ d3.select("button").on("click",(d)=>{
     cluster = +cluster;
   }
   
-  console.log(`cluster ${cluster}`);
-  console.log(`crop ${crop}`);
-
 
   //Generating the map
   d3.json(clust_url).then(function(data) {
@@ -89,7 +86,6 @@ d3.select("button").on("click",(d)=>{
         clColor ="#4040a1"
       }else{clColor= " #e06377"}
     
-    if(cluster === ccluster){console.log('ok')}
      
     if (crop === "all" && cluster === "all"){
       L.circle(location, {
